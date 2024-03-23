@@ -4,33 +4,35 @@
         Title="ArchiDesk App" Height="450" Width="800"
         WindowStyle="ThreeDBorderWindow" > 
     <Grid>
-    <Menu>
-    <MenuItem Header="_File">
-        <MenuItem Header="_About" Click="AboutMenuItem_Click"/>
+        <Menu>
+            <MenuItem Header="_File">
+            <MenuItem Header="_About" Click="AboutMenuItem_Click"/>
         <Separator/>
-        <MenuItem Header="_Quit" Click="QuitMenuItem_Click"/>
-    </MenuItem>
-    
-</Menu>
+            <MenuItem Header="_Quit" Click="QuitMenuItem_Click"/>
+            </MenuItem>
+        </Menu>
 
         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
             <TextBox x:Name="inputTextBox" Width="200" Height="30" Margin="0,50,0,0"/>
             <Button Content="Load Images" Width="100" Height="30" Click="LoadImagesButtonClick" Margin="5"/>
-            <ScrollViewer Height="300" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Margin="5"> <!-- Enclose ItemsControl in a ScrollViewer -->
+            <ScrollViewer Height="300" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Margin="5">
                 <ItemsControl x:Name="imagesControl">
+
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <WrapPanel Orientation="Horizontal" /> <!-- Use WrapPanel for wrapping -->
+                            <WrapPanel Orientation="Horizontal" />
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
+
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="5"> <!-- Added Margin for spacing -->
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="5">
                                 <Image Source="{Binding Url}" Width="100" Height="100" />
-                                
+                                <TextBlock Text="{Binding Name}" />
                             </StackPanel>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
+                    
                 </ItemsControl>
             </ScrollViewer>
         </StackPanel>

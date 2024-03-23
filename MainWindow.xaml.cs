@@ -22,7 +22,6 @@ public partial class MainWindow : Window
 
     public MainWindow()
     {
-
         InitializeComponent();
     }
     public class ImageData
@@ -50,9 +49,9 @@ public partial class MainWindow : Window
 
                 foreach (var item in data.data)
                 {
-                    if (imagesData.Count >= 50) // Limit to 10 images
+                    if (imagesData.Count >= 50)
                     {
-                        break; // Exit the loop once we have 10 images
+                        break;
                     }
 
                     imagesData.Add(new ImageData
@@ -72,13 +71,10 @@ public partial class MainWindow : Window
     }
 
     private void AboutMenuItem_Click(object sender, RoutedEventArgs e)
-{
-    AboutWindow aboutWindow = new AboutWindow();
-    aboutWindow.ShowDialog(); // Show the About window as a dialog
-}
-
-
-
-
-
+    {
+        AboutWindow aboutWindow = new AboutWindow();
+        aboutWindow.Owner = this;
+        aboutWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+        aboutWindow.ShowDialog();
+    }
 }
